@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FinSabedoria - Educação Financeira</title>
+    <style>
+        :root {
+            --primary: #6200EA;
+            --secondary: #03DAC6;
+            --accent: #FF9100;
+            --light: #F5F5F5;
+            --dark: #121212;
+            --success: #00C853;
+            --warning: #FFD600;
+            --danger: #FF3D00;
+            --info: #2196F3;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, #9C27B0 100%);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            position: relative;
+        }
+        
+        header h1 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        header p {
+            font-size: 1.3rem;
+            opacity: 0.9;
+        }
+        
+        .hero-image {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            margin-bottom: -5px;
+            border-bottom: 5px solid var(--accent);
+        }
+        
+        nav {
+            background: linear-gradient(90deg, var(--secondary) 0%, #00BCD4 100%);
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style-type: none;
+            gap: 2rem;
+        }
+        
+        nav a {
+            color: var(--dark);
+            text-decoration: none;
+            font-weight: bold;
+            padding: 0.7rem 1.5rem;
+            border-radius: 30px;
+            transition: all 0.3s;
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        
+        nav a:hover {
+            background-color: white;
+            color: var(--primary);
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .intro {
+            text-align: center;
+            margin-bottom: 3rem;
+            background-color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+            border-top: 5px solid var(--info);
+        }
+        
+        .intro h2 {
+            font-size: 2.2rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .intro h2:after {
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 4px;
+            background-color: var(--accent);
+            bottom: -10px;
+            left: 25%;
+            border-radius: 2px;
+        }
+        
+        .intro p {
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: 1.5rem auto 0;
+        }
+        
+        .faq-section {
+            margin-bottom: 4rem;
+        }
+        
+        .faq-section h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--primary);
+            font-size: 2.2rem;
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .faq-section h2:after {
+            content: '';
+            position: absolute;
+            width: 70%;
+            height: 4px;
+            background-color: var(--accent);
+            bottom: -10px;
+            left: 15%;
+            border-radius: 2px;
+        }
+        
+        .faq-container {
+            display: flex;
+            flex-direction: column;
+            gap: 2.5rem;
+        }
+        
+        .faq-item {
+            background-color: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .faq-item:nth-child(1) {
+            border-top: 5px solid var(--success);
+        }
+        
+        .faq-item:nth-child(2) {
+            border-top: 5px solid var(--warning);
+        }
+        
+        .faq-item:nth-child(3) {
+            border-top: 5px solid var(--danger);
+        }
+        
+        .faq-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+        }
+        
+        .faq-question {
+            background: linear-gradient(45deg, var(--info) 0%, #3F51B5 100%);
+            color: white;
+            padding: 1.7rem;
+            font-size: 1.4rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 1.2rem;
+        }
+        
+        .question-icon {
+            background-color: white;
+            color: var(--primary);
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.6rem;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        
+        .faq-answer {
+            padding: 2rem;
+            display: flex;
+            gap: 2.5rem;
+            align-items: flex-start;
+        }
+        
+        .answer-image {
+            width: 250px;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 12px;
+            flex-shrink: 0;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+            border: 5px solid white;
+            transition: transform 0.3s;
+        }
+        
+        .answer-image:hover {
+            transform: scale(1.05);
+        }
+        
+        .answer-text {
+            flex-grow: 1;
+        }
+        
+        .answer-text p {
+            margin-bottom: 1.2rem;
+            font-size: 1.05rem;
+        }
+        
+        .answer-text p strong {
+            color: var(--primary);
+        }
+        
+        .answer-text ul {
+            margin-left: 1.5rem;
+            margin-bottom: 1.2rem;
+        }
+        
+        .answer-text li {
+            margin-bottom: 0.6rem;
+        }
+        
+        footer {
+            background: linear-gradient(135deg, var(--primary) 0%, #651FFF 100%);
+            color: white;
+            text-align: center;
+            padding: 3rem 2rem;
+            margin-top: 3rem;
+        }
+        
+        footer p {
+            margin-bottom: 1rem;
+            opacity: 0.9;
+        }
+        
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 1.2rem;
+            margin-top: 1.5rem;
+        }
+        
+        .social-icon {
+            width: 45px;
+            height: 45px;
+            background-color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            color: var(--primary);
+            text-decoration: none;
+            transition: transform 0.3s, background-color 0.3s;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        
+        .social-icon:hover {
+            transform: translateY(-5px);
+            background-color: var(--accent);
+            color: white;
+        }
+        
+        .highlight-box {
+            background-color: rgba(3, 218, 198, 0.1);
+            border-left: 4px solid var(--secondary);
+            padding: 1rem;
+            margin: 1.5rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        @media (max-width: 768px) {
+            .faq-answer {
+                flex-direction: column;
+            }
+            
+            .answer-image {
+                width: 100%;
+                height: auto;
+                max-height: 250px;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+            }
+            
+            header h1 {
+                font-size: 2rem;
+            }
+            
+            .faq-question {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>FinSabedoria</h1>
+        <p>Seu guia para investimentos seguros e inteligentes</p>
+    </header>
+    
+    <img src="/api/placeholder/1200/350" alt="Imagem representativa de finanças e investimentos" class="hero-image">
+    
+    
+    <div class="container">
+        <section id="inicio" class="intro">
+            <h2>Bem-vindo à FinSabedoria</h2>
+            <p>Nosso objetivo é fornecer conhecimento financeiro acessível para todos. Entendemos que o mercado financeiro pode parecer complexo, mas estamos aqui para simplificar conceitos importantes e ajudar você a tomar decisões financeiras com mais confiança.</p>
+        </section>
+        
+        <section id="faq" class="faq-section">
+            <h2>Perguntas Frequentes</h2>
+            
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <div class="question-icon">1</div>
+                        <h3>Qual a diferença entre risco e incerteza no mercado financeiro?</h3>
+                    </div>
+                    <div class="faq-answer">
+                        <img src="/api/placeholder/250/250" alt="Gráfico representando risco e incerteza" class="answer-image">
+                        <div class="answer-text">
+                            <p><strong>Risco</strong> se refere a situações em que conhecemos as probabilidades dos possíveis resultados. É mensurável e quantificável, permitindo que investidores tomem decisões baseadas em dados históricos e análises estatísticas.</p>
+                            
+                            <p><strong>Incerteza</strong>, por outro lado, representa situações onde não conhecemos as probabilidades dos resultados possíveis ou mesmo quais resultados são possíveis. É impossível de quantificar precisamente e está relacionada a eventos imprevisíveis como mudanças regulatórias, crises globais ou inovações disruptivas.</p>
+                            
+                            <div class="highlight-box">
+                                <p><strong>Exemplos práticos:</strong></p>
+                                <ul>
+                                    <li><strong>Risco:</strong> Comprar ações de uma empresa com volatilidade conhecida, onde análises estatísticas podem prever um intervalo provável de retorno.</li>
+                                    <li><strong>Incerteza:</strong> Investir em uma startup em um mercado emergente, onde não há dados suficientes para estimar retornos ou probabilidades de sucesso.</li>
+                                </ul>
+                            </div>
+                            
+                            <p>Enquanto o risco pode ser gerenciado através de diversificação e hedging, a incerteza exige flexibilidade estratégica e preparação para cenários imprevistos.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <div class="question-icon">2</div>
+                        <h3>Como avaliar o nível de risco de um investimento?</h3>
+                    </div>
+                    <div class="faq-answer">
+                        <img src="/api/placeholder/250/250" alt="Análise de risco de investimento" class="answer-image">
+                        <div class="answer-text">
+                            <p>Avaliar o nível de risco de um investimento envolve múltiplas métricas e considerações:</p>
+                            
+                            <div class="highlight-box">
+                                <p><strong>Métricas quantitativas:</strong></p>
+                                <ul>
+                                    <li><strong>Volatilidade (Desvio Padrão):</strong> Mede quanto os retornos variam em relação à média. Maior volatilidade geralmente indica maior risco.</li>
+                                    <li><strong>Beta:</strong> Compara a volatilidade de um ativo em relação ao mercado como um todo. Um beta maior que 1 indica maior risco que o mercado.</li>
+                                    <li><strong>Value at Risk (VaR):</strong> Estima a perda máxima potencial em um determinado período com uma probabilidade específica.</li>
+                                    <li><strong>Índice de Sharpe:</strong> Avalia o retorno ajustado ao risco, comparando o retorno excedente com a volatilidade.</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="highlight-box">
+                                <p><strong>Fatores qualitativos:</strong></p>
+                                <ul>
+                                    <li><strong>Liquidez:</strong> Quão facilmente o investimento pode ser convertido em dinheiro sem perda significativa de valor.</li>
+                                    <li><strong>Horizonte de tempo:</strong> Investimentos de longo prazo geralmente permitem maior tolerância a riscos temporários.</li>
+                                    <li><strong>Complexidade:</strong> Produtos financeiros complexos frequentemente escondem riscos adicionais.</li>
+                                    <li><strong>Risco de crédito:</strong> A possibilidade de inadimplência do emissor de títulos ou devedor.</li>
+                                    <li><strong>Risco de mercado:</strong> Influência de fatores macroeconômicos e tendências de mercado.</li>
+                                </ul>
+                            </div>
+                            
+                            <p>Um método eficaz para avaliar riscos é utilizar uma combinação destas métricas junto com uma análise do seu próprio perfil de investidor (conservador, moderado ou arrojado) e seus objetivos financeiros.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <div class="question-icon">3</div>
+                        <h3>Quais são os métodos para gerenciar riscos e evitar perdas significativas?</h3>
+                    </div>
+                    <div class="faq-answer">
+                        <img src="/api/placeholder/250/250" alt="Gerenciamento de riscos" class="answer-image">
+                        <div class="answer-text">
+                            <p>Existem diversos métodos eficazes para gerenciar riscos nos investimentos:</p>
+                            
+                            <div class="highlight-box">
+                                <p><strong>Estratégias essenciais:</strong></p>
+                                <ul>
+                                    <li><strong>Diversificação:</strong> "Não coloque todos os ovos na mesma cesta". Distribua investimentos entre diferentes classes de ativos (ações, títulos, imóveis), setores econômicos e regiões geográficas.</li>
+                                    
+                                    <li><strong>Alocação de ativos:</strong> Determine a proporção ideal entre ativos de renda variável, renda fixa e reserva de emergência de acordo com seus objetivos e tolerância a risco.</li>
+                                    
+                                    <li><strong>Stop loss e take profit:</strong> Estabeleça previamente pontos de saída para limitar perdas (stop loss) e garantir lucros (take profit) em investimentos voláteis.</li>
+                                    
+                                    <li><strong>Investimento regular (Dollar-Cost Averaging):</strong> Invista regularmente, independente das condições de mercado, para minimizar o impacto da volatilidade no longo prazo.</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="highlight-box">
+                                <p><strong>Técnicas avançadas:</strong></p>
+                                <ul>
+                                    <li><strong>Rebalanceamento periódico:</strong> Revise sua carteira periodicamente para mantê-la alinhada com sua estratégia original.</li>
+                                    
+                                    <li><strong>Hedge:</strong> Use instrumentos como opções, futuros ou ETFs inversos para proteger posições existentes contra movimentos adversos de mercado.</li>
+                                    
+                                    <li><strong>Análise fundamentalista:</strong> Avalie a saúde financeira, vantagens competitivas e potencial de crescimento de empresas antes de investir.</li>
+                                </ul>
+                            </div>
+                            
+                            <p><strong>Manter reserva de emergência:</strong> Mantenha liquidez suficiente em investimentos de baixo risco para cobrir despesas de 3 a 12 meses, evitando a necessidade de vender ativos em momentos desfavoráveis.</p>
+                            
+                            <p><strong>Educação contínua:</strong> Mantenha-se informado sobre mercados, economia e novas oportunidades de investimento para tomar decisões mais fundamentadas.</p>
+                            
+                            <p>Lembre-se que gerenciar riscos não significa eliminá-los completamente, mas sim criar uma estratégia consciente onde os riscos assumidos estão alinhados com seu perfil e objetivos.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    
+    <footer>
+        <p>© 2025 FinSabedoria - Todos os direitos reservados</p>
+        <p>Aviso: As informações contidas neste site são apenas para fins educacionais e não constituem recomendação de investimento.</p>
+        
+        <div class="social-icons">
+            <a href="#" class="social-icon">f</a>
+            <a href="#" class="social-icon">in</a>
+            <a href="#" class="social-icon">t</a>
+            <a href="#" class="social-icon">ig</a>
+        </div>
+    </footer>
+</body>
+</html>
