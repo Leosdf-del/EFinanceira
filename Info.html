@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Investimento Estratégico - Guia Prático</title>
+    <style>
+        :root {
+            --primary-green: #2ecc71;
+            --secondary-green: #27ae60;
+            --dark-background: #2c3e50;
+            --light-background: #ecf0f1;
+            --text-color: #34495e;
+            --accent-color: #3498db;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', 'Helvetica', sans-serif;
+        }
+
+        body {
+            background-color: var(--light-background);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--dark-background) 0%, var(--accent-color) 100%);
+            color: white;
+            text-align: center;
+            padding: 3rem 0;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .investment-strategies {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .strategy-card {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            padding: 2rem;
+            transition: transform 0.3s ease;
+        }
+
+        .strategy-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .strategy-card h2 {
+            color: var(--primary-green);
+            margin-bottom: 1rem;
+            border-bottom: 3px solid var(--secondary-green);
+            padding-bottom: 0.5rem;
+        }
+
+        .strategy-card ul {
+            list-style-type: none;
+        }
+
+        .strategy-card li {
+            margin-bottom: 1rem;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .strategy-card li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--primary-green);
+            font-weight: bold;
+        }
+
+        .portfolio-simulation {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+
+        .portfolio-simulation h2 {
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+        }
+
+        .risk-profile-section {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 2rem;
+        }
+
+        .risk-profile {
+            flex: 1;
+            margin: 0 1rem;
+            background-color: var(--light-background);
+            padding: 1.5rem;
+            border-radius: 10px;
+        }
+
+        .risk-profile h3 {
+            color: var(--dark-background);
+            margin-bottom: 1rem;
+        }
+
+        footer {
+            background-color: var(--dark-background);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .investment-strategies,
+            .risk-profile-section {
+                grid-template-columns: 1fr;
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Investimento Estratégico</h1>
+        <p>Transformando conhecimento em estratégias de investimento inteligentes</p>
+    </header>
+
+    <div class="container">
+        <section class="investment-strategies">
+            <div class="strategy-card">
+                <h2>Estratégias de Diversificação</h2>
+                <ul>
+                    <li>Distribuir investimentos entre diferentes classes de ativos</li>
+                    <li>Equilibrar renda fixa, variável e internacional</li>
+                    <li>Considerar ETFs e fundos de investimento</li>
+                    <li>Rebalancear periodicamente a carteira</li>
+                </ul>
+            </div>
+
+            <div class="strategy-card">
+                <h2>Análise de Investimentos</h2>
+                <ul>
+                    <li>Avaliar indicadores fundamentalistas</li>
+                    <li>Analisar múltiplos como P/L e ROE</li>
+                    <li>Estudar relatórios trimestrais e anuais</li>
+                    <li>Comparar desempenho setorial</li>
+                </ul>
+            </div>
+
+            <div class="strategy-card">
+                <h2>Gestão de Riscos</h2>
+                <ul>
+                    <li>Definir stop loss e take profit</li>
+                    <li>Manter reserva de emergência</li>
+                    <li>Usar estratégias de hedge</li>
+                    <li>Monitorar exposição a riscos cambiais</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="portfolio-simulation">
+            <h2>Simulação de Portfólio</h2>
+            <div class="risk-profile-section">
+                <div class="risk-profile">
+                    <h3>Perfil Conservador</h3>
+                    <p>Foco em renda fixa e ativos de baixa volatilidade</p>
+                    <ul>
+                        <li>80% Renda Fixa</li>
+                        <li>15% Renda Variável</li>
+                        <li>5% Investimentos Internacionais</li>
+                    </ul>
+                </div>
+
+                <div class="risk-profile">
+                    <h3>Perfil Moderado</h3>
+                    <p>Equilíbrio entre segurança e potencial de crescimento</p>
+                    <ul>
+                        <li>50% Renda Fixa</li>
+                        <li>40% Renda Variável</li>
+                        <li>10% Investimentos Internacionais</li>
+                    </ul>
+                </div>
+
+                <div class="risk-profile">
+                    <h3>Perfil Arrojado</h3>
+                    <p>Foco em crescimento e maior tolerância a riscos</p>
+                    <ul>
+                        <li>20% Renda Fixa</li>
+                        <li>65% Renda Variável</li>
+                        <li>15% Investimentos Internacionais</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <section class="container" style="margin-top: 2rem; background-color: #f4f4f4; padding: 2rem; border-radius: 10px;">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+            <div style="flex: 1; padding-right: 1rem;">
+                <h2 style="color: var(--dark-background);">Educação Financeira Completa</h2>
+                <p>Conheça nosso site irmão FinSabedoria para mais insights sobre conceitos financeiros fundamentais!</p>
+                <a href="finsabedoria.html" style="display: inline-block; background-color: var(--primary-green); color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; margin-top: 1rem;">Visitar FinSabedoria</a>
+            </div>
+            <div style="flex: 1; text-align: center;">
+                <img src="/api/placeholder/300/200" alt="Educação Financeira" style="max-width: 100%; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2025 Investimento Estratégico - Todos os direitos reservados</p>
+        <p>Aviso: Informações para fins educacionais. Consulte um profissional financeiro para recomendações personalizadas.</p>
+    </footer>
+</body>
+</html>
